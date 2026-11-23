@@ -1,0 +1,67 @@
+package projects.chapters.ch1.unit1;
+
+import java.util.Scanner;
+
+/**
+ * WelcomeBot
+ * An interactive console bot that greets users, asks about their favorite books
+ * and reading habits, and responds dynamically using conditional logic.
+ */
+public class WelcomeBot {
+    static void main(String[] args) {
+
+        // Initialize Scanner to read input from the console
+        Scanner input = new Scanner(System.in);
+
+        // Display the bot's initial greeting
+        String border = "=".repeat(62);
+        System.out.println(border);
+        System.out.println("🤖 Hello! My name is Javie and I'm your friendly Bookish Bot.");
+        System.out.println(border);
+
+        // Ask the user questions
+        System.out.print("What is your name?\n");
+        String userName = input.nextLine();
+
+        System.out.println("Nice to meet you, " + userName + "👋🏻!");
+
+        System.out.print("What is your favorite book or genre?\n");
+        String userInput = input.nextLine();
+
+        // Convert to lowercase for easy keyword matching (keeps original capitalization in userInput).
+        String lowerInput = userInput.toLowerCase();
+
+        if (lowerInput.contains("fantasy")) {
+            System.out.println("Yes! Nothing beats the design maps, the magic and the morally grey characters ✨.");
+        } else if (lowerInput.contains("history") || lowerInput.contains("historical")) {
+            System.out.println("Historical fiction is incredible, every city and holds a hidden story 🏛️.");
+        } else if (lowerInput.contains("sci-fi") || lowerInput.contains("science fiction")) {
+            System.out.println("Your friendly neighborhood Bot 😉");
+        } else {
+            System.out.println(" \"" + userInput + "\" sounds like a fantastic read! Adding it to my digital bookshelf 📚.");
+        }
+
+        // Follow-up question on reading format using a switch statement
+        System.out.print("How do you prefer to read? (physical / e-book / audiobook):\n");
+
+        // Reads input, removes extra spaces, and converts to lowercase for clean switch matching.
+        String format = input.nextLine().trim().toLowerCase();
+
+        switch (format) {
+            case "physical":
+                System.out.println("Classic choice! Nothing compares to the smell of paper and turning real pages 📖.");
+                break;
+            case "e-book", "e-reader", "kindle":
+                System.out.println("Super practical—carrying an entire library in your bag is unbeatable 📱.");
+                break;
+            case "audiobook":
+                System.out.println("Great for multitasking! Perfect for walks, commutes, or relaxing 🎧.");
+                break;
+            default:
+                System.out.println("As long as there's a good story involved, any format works!");
+                break;
+        }
+            // Closing message
+        System.out.println("Thanks for chatting, " + userName + ". Happy reading!");
+    }
+}
