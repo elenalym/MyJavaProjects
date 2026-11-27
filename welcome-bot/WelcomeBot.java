@@ -1,5 +1,3 @@
-package projects.chapters.ch1.unit1;
-
 import java.util.Scanner;
 
 /**
